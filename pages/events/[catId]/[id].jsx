@@ -1,16 +1,6 @@
-import Head from 'next/head';
-import Link from 'next/link';
-
 export default function EventsCatPage({ event }) {
   return (
     <>
-      <header>
-        <nav>
-          <Link href='/'>Home</Link>
-          <Link href='/events'>Events</Link>
-          <Link href='/about-us'>About Us</Link>
-        </nav>
-      </header>
       <main>
         <div>
           <h2>{event?.title}</h2>
