@@ -91,7 +91,13 @@ export default function Navbar() {
         <h5 className='text-center font-light opacity-75'>Software Engineer</h5>
         <div className='flex justify-center items-center gap-6 mt-4'>
           {externalLinks.map((item) => (
-            <a href={item.path} target='_blank' className='text-white'>
+            <a
+              href={item.path}
+              key={item.path}
+              target='_blank'
+              rel='noreferrer'
+              className='text-white'
+            >
               <item.icon
                 width={30}
                 height={30}
