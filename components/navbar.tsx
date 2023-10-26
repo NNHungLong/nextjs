@@ -48,11 +48,13 @@ const externalLinks = [
   {
     name: 'Linkedin',
     path: 'https://www.linkedin.com/in/long-nguy%E1%BB%85n-998743199/',
+    ariaLabel: 'Learn more about the author on Linkedin',
     icon: LinkedInLogoIcon,
   },
   {
     name: 'Github',
     path: 'https://github.com/NNHungLong',
+    ariaLabel: 'Learn more about the author on Github',
     icon: GitHubLogoIcon,
   },
 ];
@@ -81,10 +83,20 @@ export default function Navbar() {
       <div className='bg-neutral-600 flex flex-col px-16 gap-2 pt-12 text-white'>
         <div className='rounded-full overflow-hidden flex justify-center items-center border-2 border-white bg-white w-[180px] h-[180px]'>
           <Image
-            src='/images/anh3x4.jpg'
-            width={180}
-            height={180}
             alt='author'
+            width='176'
+            height='235'
+            sizes='176px'
+            quality={100}
+            src='/images/anh3x4.webp'
+            //   decoding='async'
+            //   data-nimg='1'
+            //   style='color:transparent'
+            //   srcset='
+            //   /_next/image?url=%2Fimages%2Fanh3x4.webp&w=256&q=75 1x,
+            //   /_next/image?url=%2Fimages%2Fanh3x4.webp&w=384&q=75 1.5x,
+            // '
+            //   src='/_next/image?url=%2Fimages%2Fanh3x4.webp&w=384&q=75'
           />
         </div>
         <h4 className='font-bold text-3xl text-center mt-4'>Hùng Long</h4>
@@ -95,6 +107,7 @@ export default function Navbar() {
               href={item.path}
               key={item.path}
               target='_blank'
+              aria-label={item?.ariaLabel}
               rel='noreferrer'
               className='text-white'
             >
@@ -107,9 +120,9 @@ export default function Navbar() {
           ))}
         </div>
         <div className='flex justify-center items-center my-10'>
-          <h4 className='text-center px-4 py-2 border-2 rounded-lg border-white hover:bg-white hover:text-sky-500 transition ease-in-out duration-300 cursor-pointer'>
+          <p className='text-center px-4 py-2 border-2 rounded-lg border-white hover:bg-white hover:text-sky-500 transition ease-in-out duration-300 cursor-pointer'>
             Download CV
-          </h4>
+          </p>
         </div>
       </div>
     </div>
