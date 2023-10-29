@@ -1,4 +1,10 @@
 import Layout from '../components/layout';
+import type { GetStaticProps } from 'next';
+
+// use getStaticProps will make this page static and Nextjs will generate static site in build time
+export const getStaticProps = (async () => {
+  return { props: {} };
+}) satisfies GetStaticProps<{}>;
 
 export default function Home() {
   return (
