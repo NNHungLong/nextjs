@@ -88,7 +88,7 @@ function MobileNavbar() {
   return (
     <div
       id='mobile-nav-bar'
-      className='absolute z-40 translate-x-[-330px] h-screen overflow-auto w-[330px] bg-neutral-600 duration-300 ease-in-out flex flex-col gap-2 pt-8 text-white lg:hidden items-center'
+      className='fixed z-40 translate-x-[-330px] h-screen overflow-auto w-[330px] bg-neutral-700 duration-300 ease-in-out flex flex-col gap-2 pt-8 text-white lg:hidden items-center'
     >
       {ProfileAvatar()}
       {NameAndTitle()}
@@ -189,7 +189,7 @@ export default function Navbar() {
     <>
       <HamburgerIcon />
       <MobileNavbar />
-      <div className='lg:flex hidden'>
+      <div className='lg:flex hidden overflow-y-auto'>
         <nav className='w-[100px] min-h-screen bg-zinc-800'>
           <ul>
             {navItems.map((item) => (
@@ -210,7 +210,7 @@ export default function Navbar() {
             ))}
           </ul>
         </nav>
-        <div className='bg-neutral-600 flex flex-col px-16 gap-2 pt-12 text-white'>
+        <div className='bg-neutral-700 flex flex-col px-16 gap-2 pt-12 text-white'>
           {ProfileAvatar()}
           {NameAndTitle()}
           {ExternalLinks()}

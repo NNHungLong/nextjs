@@ -15,7 +15,7 @@ export default function App({ Component, pageProps }: AppProps) {
           key='desc'
         />
       </Head>
-      <div className='flex bg-neutral-600'>
+      <div className='flex bg-neutral-700 w-screen h-screen overflow-hidden'>
         <Navbar />
         <Component {...pageProps} />
       </div>

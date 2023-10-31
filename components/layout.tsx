@@ -21,7 +21,7 @@ export default function Layout({
 }: LayoutProps): React.JSX.Element {
   return (
     <div
-      className={`bg-black w-full min-h-screen text-white flex flex-col justify-center items-center gap-3 ${className}`}
+      className={`lg:w-[calc(100%-408px)] w-full overflow-y-auto bg-neutral-800 min-h-screen text-zinc-200 flex flex-col items-center gap-3 ${className}`}
       onClick={collapseMobileNavBar}
     >
       {children}

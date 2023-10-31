@@ -8,7 +8,7 @@ export const getStaticProps = (async () => {
 
 export default function Home() {
   return (
-    <Layout className=''>
+    <Layout className='justify-center items-center'>
       <h1 className='font-bold text-5xl'>Hùng Long</h1>
       <p className='font-thin'>Software Engineer</p>
     </Layout>

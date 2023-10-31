@@ -105,7 +105,7 @@
 }
 
 .hamburger-icon {
-  position: absolute;
+  position: fixed;
   left: 0.5rem;
   top: 0.5rem;
   width: 48px;
@@ -152,4 +152,32 @@
   position: absolute;
   top: calc(50% - 1px);
   transform: rotate(-45deg);
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.infinite-slider {
+  animation: 20s slide infinite linear;
+}
+.highlight-layer {
+  position: relative;
+}
+.highlight-layer::after {
+  position: absolute;
+  opacity: .45;
+  top: 25%;
+  right: -25%;
+  content: '';
+  height: 80%;
+  width: 30px;
+  background-image: radial-gradient(#04b4e0 1px, transparent 0);
+  background-size: 6px 6px;
+  z-index: 0;
 }
