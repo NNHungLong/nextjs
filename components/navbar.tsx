@@ -60,31 +60,36 @@ const externalLinks = [
   },
 ];
 
-function NavItemsMobile() {
+function NavItemsMobile(): React.JSX.Element {
   const router = useRouter();
   const pathName = router.pathname;
   return (
     <ul className='pt-2 flex flex-col gap-2'>
       {navItems.map((item) => (
         <li key={item?.path}>
-          <Link href={item?.path} className='flex justify-center items-center'>
-            <span
-              className={`hover:text-sky-500 ${
-                pathName === item?.path
-                  ? 'font-bold text-sky-500'
-                  : 'text-zinc-200'
-              }`}
+          <div onClick={toggleMobileNavBar}>
+            <Link
+              href={item?.path}
+              className='flex justify-center items-center'
             >
-              {item?.name}
-            </span>
-          </Link>
+              <span
+                className={`hover:text-sky-500 ${
+                  pathName === item?.path
+                    ? 'font-bold text-sky-500'
+                    : 'text-zinc-200'
+                }`}
+              >
+                {item?.name}
+              </span>
+            </Link>
+          </div>
         </li>
       ))}
     </ul>
   );
 }
 
-function MobileNavbar() {
+function MobileNavbar(): React.JSX.Element {
   return (
     <div
       id='mobile-nav-bar'
@@ -99,7 +104,7 @@ function MobileNavbar() {
   );
 }
 
-function HamburgerIcon() {
+function HamburgerIcon(): React.JSX.Element {
   return (
     <div
       id='hamburger-icon'
@@ -113,7 +118,7 @@ function HamburgerIcon() {
   );
 }
 
-function ProfileAvatar() {
+function ProfileAvatar(): React.JSX.Element {
   return (
     <div className='rounded-full overflow-hidden flex justify-center items-center border-2 border-white bg-white w-[180px] min-h-[180px] h-[180px]'>
       <Image
@@ -128,7 +133,7 @@ function ProfileAvatar() {
   );
 }
 
-function NameAndTitle() {
+function NameAndTitle(): React.JSX.Element {
   return (
     <>
       <h4 className='font-bold text-3xl text-center mt-4'>Hùng Long</h4>
@@ -137,7 +142,7 @@ function NameAndTitle() {
   );
 }
 
-function ExternalLinks() {
+function ExternalLinks(): React.JSX.Element {
   return (
     <div className='flex justify-center items-center gap-6 mt-4'>
       {externalLinks.map((item) => (
@@ -160,17 +165,21 @@ function ExternalLinks() {
   );
 }
 
-function DownloadCV() {
+function DownloadCV(): React.JSX.Element {
   return (
     <div className='flex justify-center items-center my-10'>
-      <p className='text-center px-4 py-2 border-2 rounded-lg border-white hover:bg-white hover:text-sky-500 transition ease-in-out duration-300 cursor-pointer'>
+      <a
+        href='/downloads/CV_Long.pdf'
+        download='CV_HungLong'
+        className='text-center px-4 py-2 border-2 rounded-lg border-white hover:bg-white hover:text-sky-500 transition ease-in-out duration-300 cursor-pointer'
+      >
         Download CV
-      </p>
+      </a>
     </div>
   );
 }
 
-export function toggleMobileNavBar() {
+export function toggleMobileNavBar(): void {
   const hamburgerIcon = document.getElementById('hamburger-icon');
   const mobileNavBar = document.getElementById('mobile-nav-bar');
   if (hamburgerIcon.classList.contains('active')) {
@@ -182,7 +191,7 @@ export function toggleMobileNavBar() {
   }
 }
 
-export default function Navbar() {
+export default function Navbar(): React.JSX.Element {
   const router = useRouter();
   const pathName = router.pathname;
   return (

@@ -3,60 +3,10 @@ import Shop from '../../public/icons/shop';
 import PC from '../../public/icons/pc';
 import Phone from '../../public/icons/phone';
 import ChatDot from '../../public/icons/chatdot';
-import DockerLogo from '../../public/images/logo/docker.png';
-import JqueryLogo from '../../public/images/logo/jquery.png';
-import MongoDBLogo from '../../public/images/logo/mongodb.png';
-import MysqlLogo from '../../public/images/logo/mysql.png';
-import NextJsLogo from '../../public/images/logo/nextjs.png';
-import PHPLogo from '../../public/images/logo/php.png';
-import ReactNativeLogo from '../../public/images/logo/react-native.png';
-import RemixLogo from '../../public/images/logo/remix.webp';
-import TailwindCssLogo from '../../public/images/logo/tailwindcss.png';
-import WordpressLogo from '../../public/images/logo/wordpress.png';
+import { Logos } from '../../components/logo';
+import PageTitle from '../../components/pageTitle';
+import PageSubtitle from '../../components/pageSubtitle';
 import Image from 'next/image';
-
-const Logos = [
-  {
-    component: DockerLogo,
-    name: 'Docker',
-  },
-  {
-    component: JqueryLogo,
-    name: 'Jquery',
-  },
-  {
-    component: MongoDBLogo,
-    name: 'MongoDB',
-  },
-  {
-    component: MysqlLogo,
-    name: 'MySQL',
-  },
-  {
-    component: NextJsLogo,
-    name: 'Next.js',
-  },
-  {
-    component: PHPLogo,
-    name: 'PHP',
-  },
-  {
-    component: ReactNativeLogo,
-    name: 'React Native',
-  },
-  {
-    component: RemixLogo,
-    name: 'Remix',
-  },
-  {
-    component: TailwindCssLogo,
-    name: 'Tailwind CSS',
-  },
-  {
-    component: WordpressLogo,
-    name: 'WordPress',
-  },
-];
 
 const selfIntroduction = [
   `My name is Long, I am a software engineer with more than four
@@ -97,7 +47,7 @@ const whatIDoList = [
   },
 ];
 
-function renderPersonalInfo() {
+function renderPersonalInfo(): React.JSX.Element {
   return (
     <div className='flex flex-col md:flex-row gap-8'>
       <div className='md:basis-3/5 leading-relaxed'>
@@ -120,12 +70,10 @@ function renderPersonalInfo() {
     </div>
   );
 }
-function renderWhatIDo() {
+function renderWhatIDo(): React.JSX.Element {
   return (
-    <div className='mt-8'>
-      <h3 className='font-bold text-2xl mb-4'>
-        What <span className='text-sky-500 highlight-layer'>I Do</span>
-      </h3>
+    <div className='mt-6'>
+      <PageSubtitle text='What' highlightText='I Do' />
       <div className='flex flex-wrap gap-6'>
         {whatIDoList.map((item) => (
           <div
@@ -144,7 +92,7 @@ function renderWhatIDo() {
   );
 }
 
-function renderLogos() {
+function renderLogos(): React.JSX.Element {
   return (
     <div className='inline-block infinite-slider py-4'>
       {Logos.map((logo) => (
@@ -165,12 +113,10 @@ function renderLogos() {
   );
 }
 
-function renderInfiniteScrollCarousel() {
+function renderInfiniteScrollCarousel(): React.JSX.Element {
   return (
-    <div className='mt-8 w-full'>
-      <h3 className='font-bold text-2xl mb-4 text-zinc-200'>
-        Technologies <span className='text-sky-500 highlight-layer'>I Use</span>
-      </h3>
+    <div className='mt-6 w-full'>
+      <PageSubtitle text='Technologies' highlightText='I Use' />
       <div className='bg-neutral-700 whitespace-nowrap overflow-hidden'>
         {renderLogos()}
         {renderLogos()}
@@ -179,13 +125,11 @@ function renderInfiniteScrollCarousel() {
   );
 }
 
-export default function About() {
+export default function About(): React.JSX.Element {
   return (
     <Layout className='justify-start items-start p-14'>
       <div className='text-zinc-200'>
-        <h2 className='font-bold text-3xl mb-8'>
-          About <span className='text-sky-500 highlight-layer'>Me</span>
-        </h2>
+        <PageTitle text='About' highlightText='Me' />
         {renderPersonalInfo()}
         {renderWhatIDo()}
       </div>

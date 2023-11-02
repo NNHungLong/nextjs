@@ -164,20 +164,55 @@
 }
 
 .infinite-slider {
-  animation: 20s slide infinite linear;
+  animation: 30s slide infinite linear;
 }
 .highlight-layer {
   position: relative;
+  display: inline-block;
 }
+.highlight-layer > h3, .highlight-layer > h2 {
+  position: relative;
+  z-index: 1;
+}
+
 .highlight-layer::after {
   position: absolute;
   opacity: .45;
   top: 25%;
-  right: -25%;
+  right: -12px;
   content: '';
   height: 80%;
   width: 30px;
   background-image: radial-gradient(#04b4e0 1px, transparent 0);
   background-size: 6px 6px;
   z-index: 0;
+}
+
+.dot-highlight::before {
+  content: '';
+  display: block;
+  position: absolute;
+  margin-top: 4px;
+  width: 17px;
+  height: 17px;
+  position: absolute;
+  margin-left: -8px;
+  border-radius: 10px;
+  background-color: #04b4e0;
+  opacity: .25;
+  z-index: 0;
+}
+
+.dot-highlight::after {
+  content: '';
+  display: block;
+  position: absolute;
+  margin-top: 8px;
+  width: 9px;
+  height: 9px;
+  margin-left: -4px;
+  background-color: #222;
+  border-radius: 5px;
+  border: 2px solid hsl(192, 96%, 45%);
+  z-index: 1;
 }
