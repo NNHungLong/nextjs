@@ -3,7 +3,7 @@ import Shop from '../../public/icons/shop';
 import PC from '../../public/icons/pc';
 import Phone from '../../public/icons/phone';
 import ChatDot from '../../public/icons/chatdot';
-import { Logos } from '../../components/logo';
+import Logos from '../../components/aboutLogos';
 import PageTitle from '../../components/pageTitle';
 import PageSubtitle from '../../components/pageSubtitle';
 import Image from 'next/image';

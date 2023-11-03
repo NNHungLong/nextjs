@@ -12,53 +12,19 @@ import WordpressLogo from '../public/images/logo/wordpress.png';
 import FreeCodeCampWhite from '../public/images/logo/free_code_camp_white.svg';
 import Image from 'next/image';
 
-const Logos = [
-  {
-    component: DockerLogo,
-    name: 'Docker',
-  },
-  {
-    component: JqueryLogo,
-    name: 'Jquery',
-  },
-  {
-    component: MongoDBLogo,
-    name: 'MongoDB',
-  },
-  {
-    component: MysqlLogo,
-    name: 'MySQL',
-  },
-  {
-    component: NextJsLogo,
-    name: 'Next.js',
-  },
-  {
-    component: PHPLogo,
-    name: 'PHP',
-  },
-  {
-    component: ReactNativeLogo,
-    name: 'React Native',
-  },
-  {
-    component: RemixLogo,
-    name: 'Remix',
-  },
-  {
-    component: TailwindCssLogo,
-    name: 'Tailwind CSS',
-  },
-  {
-    component: WordpressLogo,
-    name: 'WordPress',
-  },
-  {
-    component: FreeCodeCampWhite,
-    name: 'FreeCodeCamp',
-  },
-];
-export { Logos };
+const Logos = {
+  Docker: DockerLogo,
+  Jquery: JqueryLogo,
+  MongoDB: MongoDBLogo,
+  MySQL: MysqlLogo,
+  'Next.js': NextJsLogo,
+  PHP: PHPLogo,
+  'React Native': ReactNativeLogo,
+  Remix: RemixLogo,
+  'Tailwind CSS': TailwindCssLogo,
+  WordPress: WordpressLogo,
+  FreeCodeCamp: FreeCodeCampWhite,
+};
 
 interface Props {
   name: string;
@@ -74,11 +40,10 @@ export default function Logo({
   className = '',
   ...props
 }: Props): JSX.Element | null {
-  const logo = Logos.find((logo) => logo.name === name);
-  return logo ? (
+  return Logos[name] ? (
     <Image
-      src={logo.component.src}
-      alt={logo.name}
+      src={Logos[name].src}
+      alt={name}
       {...props}
       width={width}
       height={height}
