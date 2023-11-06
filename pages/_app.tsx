@@ -1,3 +1,4 @@
+import { AnimatePresence } from 'framer-motion';
 import Navbar from '../components/navbar';
 import Head from 'next/head';
 import 'styles/globals.css';
@@ -17,7 +18,9 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
       <div className='flex bg-neutral-700 w-screen h-screen overflow-hidden'>
         <Navbar />
-        <Component {...pageProps} />
+        <AnimatePresence mode='wait' initial={false}>
+          <Component {...pageProps} />
+        </AnimatePresence>
       </div>
     </>
   );
