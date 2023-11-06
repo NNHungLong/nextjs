@@ -3,8 +3,10 @@ import Navbar from '../components/navbar';
 import Head from 'next/head';
 import 'styles/globals.css';
 import type { AppProps } from 'next/app';
+import { usePathname } from 'next/navigation';
 
 export default function App({ Component, pageProps }: AppProps) {
+  const pathname = usePathname();
   return (
     <>
       <Head>
@@ -18,8 +20,8 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
       <div className='flex bg-neutral-700 w-screen h-screen overflow-hidden'>
         <Navbar />
-        <AnimatePresence mode='wait' initial={false}>
-          <Component {...pageProps} />
+        <AnimatePresence mode='sync' initial={false}>
+          <Component {...pageProps} key={pathname} />
         </AnimatePresence>
       </div>
     </>

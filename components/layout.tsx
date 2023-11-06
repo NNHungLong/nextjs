@@ -24,13 +24,13 @@ export default function Layout({
     <motion.div
       initial={{ x: 300, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
-      exit={{ x: 300, opacity: 0 }}
+      exit={{ x: -300, opacity: 0 }}
       transition={{
         type: 'spring',
         stiffness: 500,
         damping: 50,
       }}
-      className={`lg:w-[calc(100%-408px)] w-full overflow-y-auto bg-neutral-800 min-h-screen text-zinc-200 flex flex-col gap-3 pl-14 py-7 pr-7 ${className}`}
+      className={`lg:w-[calc(100%-408px)] w-full h-screen overflow-y-auto bg-neutral-800 text-zinc-200 flex flex-col gap-3 pl-14 py-7 pr-7 ${className} absolute right-0`}
       onClick={collapseMobileNavBar}
     >
       {children}
