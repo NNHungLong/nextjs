@@ -1,9 +1,12 @@
-import { AnimatePresence } from 'framer-motion';
-import Navbar from '../components/navbar';
-import Head from 'next/head';
-import 'styles/globals.css';
+// cores
 import type { AppProps } from 'next/app';
 import { usePathname } from 'next/navigation';
+import Head from 'next/head';
+
+// utils
+import Navbar from '../components/navbar';
+import 'styles/globals.css';
+import { AnimatePresence, motion } from 'framer-motion';
 
 export default function App({ Component, pageProps }: AppProps) {
   const pathname = usePathname();

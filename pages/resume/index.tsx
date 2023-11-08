@@ -205,7 +205,6 @@ function CertificateCard({
 }: CertificateCardProps): React.JSX.Element {
   return (
     <a
-      // className='flex border-neutral-700 border-2 rounded-lg gap-4 mb-4'
       className='flex border-neutral-700 border-2 gap-4 mb-4 hover:border-sky-500 transition-all'
       target='_blank'
       href={link}

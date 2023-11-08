@@ -200,7 +200,7 @@ export default function Navbar(): React.JSX.Element {
       <MobileNavbar />
       <div className='lg:flex hidden overflow-y-auto'>
         <nav className='w-[100px] min-h-screen bg-zinc-800'>
-          <ul>
+          <ul className='bg-zinc-800'>
             {navItems.map((item) => (
               <li
                 key={item?.path}
