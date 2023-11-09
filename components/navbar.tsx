@@ -40,7 +40,7 @@ const navItems = [
   },
   {
     name: 'Contact',
-    path: '/contact',
+    path: 'mailto:ng2hunglong@gmail.com',
     icon: EnvelopeClosedIcon,
   },
 ];
