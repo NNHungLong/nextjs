@@ -16,6 +16,8 @@ interface PortfolioData {
     title: string;
     description: string;
     src?: string;
+    imgWidth?: number;
+    imgHeight?: number;
   };
 }
 
@@ -35,8 +37,11 @@ function ProjectCard({ item, onClick }: ProjectCardProps) {
         <ImageContainer
           src={item?.src}
           alt={item?.title}
+          imgWidth={item?.imgWidth}
+          imgHeight={item?.imgHeight}
           containerClassName='h-[300px] rounded-lg shadow-xl'
-          imageClassName='hover:scale-125 transition-all duration-200 ease-linear'
+          imageClassName='hover:scale-125 transition-all duration-200 ease-linear w-[300px] h-[400px]'
+          sizes='(min-width: 420px) 300px, calc(84vw - 36px)'
         />
       </motion.div>
       <p className='font-bold text-lg'>{item?.title}</p>
@@ -74,8 +79,9 @@ export default function Portfolio() {
                   className='h-[400px] w-auto'
                   src={selectedItem?.src}
                   alt={selectedItem?.title}
-                  width={400}
-                  height={500}
+                  width={selectedItem?.imgWidth}
+                  height={selectedItem?.imgHeight}
+                  sizes='(max-width: 768px) 100vw, 400px'
                 />
               </motion.div>
               <div className='flex flex-col justify-start items-center'>

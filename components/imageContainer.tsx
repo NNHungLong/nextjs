@@ -3,19 +3,21 @@ import Image from 'next/image';
 interface ImageContainerProps {
   src: string;
   alt: string;
-  width?: number;
-  height?: number;
+  imgWidth?: number;
+  imgHeight?: number;
   containerClassName?: string;
   imageClassName?: string;
+  sizes?: string;
 }
 
 export default function ImageContainer({
   src,
   alt,
-  width,
-  height,
+  imgWidth,
+  imgHeight,
   containerClassName,
   imageClassName,
+  ...props
 }: ImageContainerProps) {
   return (
     <div
@@ -33,9 +35,10 @@ export default function ImageContainer({
       <Image
         src={src}
         alt={alt}
-        width={width || 300}
-        height={height || 300}
-        className={`relative ${imageClassName}`}
+        width={imgWidth || 300}
+        height={imgHeight || 300}
+        className={`relative max-w-full h-auto ${imageClassName}`}
+        {...props}
       />
     </div>
   );
