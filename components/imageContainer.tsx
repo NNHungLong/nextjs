@@ -5,7 +5,8 @@ interface ImageContainerProps {
   alt: string;
   width?: number;
   height?: number;
-  className?: string;
+  containerClassName?: string;
+  imageClassName?: string;
 }
 
 export default function ImageContainer({
@@ -13,11 +14,12 @@ export default function ImageContainer({
   alt,
   width,
   height,
-  className,
+  containerClassName,
+  imageClassName,
 }: ImageContainerProps) {
   return (
     <div
-      className={`relative overflow-hidden flex justify-center items-center ${className}`}
+      className={`relative overflow-hidden flex justify-center items-center ${containerClassName}`}
     >
       <div
         className='absolute inset-0'
@@ -33,7 +35,7 @@ export default function ImageContainer({
         alt={alt}
         width={width || 300}
         height={height || 300}
-        className='relative hover:scale-125 transition-all duration-200 ease-linear'
+        className={`relative ${imageClassName}`}
       />
     </div>
   );

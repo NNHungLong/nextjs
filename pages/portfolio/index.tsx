@@ -8,6 +8,7 @@ import ImageContainer from '../../components/imageContainer';
 
 import Modal from '../../components/modal';
 import ModalWrapper from '../../components/ModalWrapper';
+import Image from 'next/image';
 
 interface PortfolioData {
   item: {
@@ -34,7 +35,8 @@ function ProjectCard({ item, onClick }: ProjectCardProps) {
         <ImageContainer
           src={item?.src}
           alt={item?.title}
-          className='h-[300px]'
+          containerClassName='h-[300px] rounded-lg shadow-xl'
+          imageClassName='hover:scale-125 transition-all duration-200 ease-linear'
         />
       </motion.div>
       <p className='font-bold text-lg'>{item?.title}</p>
@@ -61,15 +63,30 @@ export default function Portfolio() {
         ))}
       </div>
       <ModalWrapper isShowing={isOpen}>
-        <Modal hideModal={() => setIsOpen(false)}>
+        <Modal containerClassName='' hideModal={() => setIsOpen(false)}>
           {selectedItem && (
-            <motion.div layoutId={`project_id_${selectedItem?.id}`}>
-              <ImageContainer
-                src={selectedItem?.src}
-                alt={selectedItem?.title}
-                className='h-[300px]'
-              />
-            </motion.div>
+            <div className='inline-flex flex-col gap-4'>
+              <motion.div
+                className='h-[400px] shrink-0 flex justify-center items-center'
+                layoutId={`project_id_${selectedItem?.id}`}
+              >
+                <Image
+                  className='h-[400px] w-auto'
+                  src={selectedItem?.src}
+                  alt={selectedItem?.title}
+                  width={400}
+                  height={500}
+                />
+              </motion.div>
+              <div className='flex flex-col justify-start items-center'>
+                <p className='text-center font-bold text-lg'>
+                  {selectedItem?.title}
+                </p>
+                <p className='max-w-1/3 text-sm text-gray-500'>
+                  {selectedItem?.description}
+                </p>
+              </div>
+            </div>
           )}
         </Modal>
       </ModalWrapper>
