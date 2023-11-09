@@ -72,11 +72,11 @@ export default function Portfolio() {
           {selectedItem && (
             <div className='inline-flex flex-col gap-4'>
               <motion.div
-                className='h-[400px] shrink-0 flex justify-center items-center'
+                className='max-h-[300px] md:max-h-[none] md:h-[400px] w-auto shrink-0 flex justify-center items-center'
                 layoutId={`project_id_${selectedItem?.id}`}
               >
                 <Image
-                  className='h-[400px] w-auto'
+                  className={`max-h-[300px] md:max-h-[none] md:h-[400px] w-auto aspect-[${selectedItem?.imgWidth}/${selectedItem?.imgHeight}]`}
                   src={selectedItem?.src}
                   alt={selectedItem?.title}
                   width={selectedItem?.imgWidth}

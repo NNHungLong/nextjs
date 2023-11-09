@@ -52,7 +52,7 @@ export default function Modal({
       <Backdrop onClick={hideModal} />
       <motion.div
         onClick={(e) => e.stopPropagation()}
-        className={`max-h-[80vh] p-10 overflow-auto bg-white rounded-lg shadow-2xl text-gray-900 max-w-[70vw] ${containerClassName}`}
+        className={`max-h-[90vh] md:max-h-[80vh] max-w-[85vw] md:max-w-[80vw] p-10 overflow-auto bg-white rounded-lg shadow-2xl text-gray-900 ${containerClassName}`}
         variants={dropIn}
         initial='hidden'
         animate='visible'
