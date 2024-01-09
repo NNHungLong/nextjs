@@ -1,8 +1,11 @@
 import Layout from '../../components/layout';
+import React from 'react';
+import Link from 'next/link';
+
 export default function Blog() {
   return (
     <Layout>
-      <h1>Comming soon...</h1>
+      <Link href='blog/redux'>Redux</Link>
     </Layout>
   );
 }
