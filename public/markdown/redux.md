@@ -95,11 +95,11 @@ console.log(currentValue); // 2
     Each UI component that needs data from the store checks to see if the parts of the state they need have changed.
   - Each component that sees its data has changed forces a re-render with the new data, so it can update what's shown on the screen.
 
-### Redux flow
+### **Redux flow**
 
   ![Redux flow image](https://redux.js.org/assets/images/ReduxDataFlowDiagram-49fa8c3968371d9ef6f2a1486bd40a26.gif)
 
-### Writing Async Logic with Thunks
+### **Writing Async Logic with Thunks**
 
 #### A **Thunk** is a specific kind of Redux function that can contain asynchronous logic. Thunks are written using two functions:
 

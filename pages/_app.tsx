@@ -6,7 +6,8 @@ import Head from 'next/head';
 // utils
 import Navbar from '../components/navbar';
 import 'styles/globals.css';
-import { AnimatePresence, motion } from 'framer-motion';
+import 'styles/markdown.css';
+import { AnimatePresence } from 'framer-motion';
 
 export default function App({ Component, pageProps }: AppProps) {
   const pathname = usePathname();
