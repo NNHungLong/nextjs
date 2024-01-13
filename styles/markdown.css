@@ -134,6 +134,10 @@
   --base-text-weight-black: 900;
 }
 
+.markdown-body ul {
+  list-style-type: disc;
+}
+
 .markdown-body .octicon {
   display: inline-block;
   fill: currentColor;
