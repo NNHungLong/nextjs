@@ -26,6 +26,11 @@ export const getStaticPaths = (async () => {
           slug: 'redux',
         },
       },
+      {
+        params: {
+          slug: 'react-basic',
+        },
+      },
     ],
     fallback: false, // true or "blocking"
   };
