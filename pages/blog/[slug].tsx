@@ -31,6 +31,11 @@ export const getStaticPaths = (async () => {
           slug: 'react-basic',
         },
       },
+      {
+        params: {
+          slug: 'react-component-lifecycle',
+        },
+      },
     ],
     fallback: false, // true or "blocking"
   };

@@ -7,6 +7,9 @@ export default function Blog() {
     <Layout>
       <Link href='blog/redux'>Redux</Link>
       <Link href='blog/react-basic'>React Basic</Link>
+      <Link href='blog/react-component-lifecycle'>
+        React - Component lifecycle
+      </Link>
     </Layout>
   );
 }
