@@ -6,7 +6,7 @@
 - **State** controls the condition to render the **View**, Where users can interact with via actions like: clicking a button, submit a form, hover a mouse over an element,... Which lead to change the **State** and update the **View**. 
 
 ### **React Component Structure**
-- React Component is an unit that control the flow of fetching data, transform data and represent data on the UI.
+- React Component is an unit that controls the flow of fetching data, transforms data and represents data on the UI.
 - Components accept inputs called **props** and return React Elements describing what should appear on the screen.
 ```jsx
 function Welcome(props) { // child component

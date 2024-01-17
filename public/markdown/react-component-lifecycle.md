@@ -34,7 +34,7 @@ function CountButton() {
 ```
 
 ## **useEffect**
-Accordinging to react.dev documentation: **useEffect** is a React Hook that lets you synchronize a component with an external system. Ex: event listener, connect and disconnect to a chat room, fetching data.
+According to react.dev documentation: **useEffect** is a React Hook that lets you synchronize a component with an external system. Ex: event listener, connect and disconnect to a chat room, fetching data.
 ```jsx
 useEffect(setup, dependencyArray?);
 ```
@@ -58,17 +58,17 @@ function ChatRoom({ roomId }) {
 ```
 Steps to write a **useEffect** to connect a component to a chat room:
 - Create a **setup** function to connect to the chat room.
-- **setup** function return a clean up function to disconnect when **ChatRoom** component is removed from screen.
-- Pass in a list of dependency in **dependencyArray** so useEffect will re-run, in this case, they are **serverUrl** and **roomId**.
+- **setup** function returns a clean-up function to disconnect when **ChatRoom** component is removed from the screen.
+- Pass in a list of dependencies in **dependencyArray** so useEffect will re-run, in this case, they are **serverUrl** and **roomId**.
 
-React calls setup and clean up multiple times whenever it's necessary.
+React calls **setup** function and clean up multiple times whenever it's necessary.
 1. **setup** function will be call when **ChatRoom** component is added to the screen.
 2. After every re-render, React will check if the dependencies have changed,
-    - First, the clean up function will be called with the old props and states in the **dependencyArray**.
+    - First, the clean-up function will be called with the old props and states in the **dependencyArray**.
     - Second, the **setup** function will be called with the new props and states.
 3. The **cleanup** function will be called when **ChatRoom** component is removed from the screen.
 
-### **useEffect** with *window.addEventListener* to check if user is online.
+### **useEffect** with *window.addEventListener* to check if a user is online.
 ```jsx
 import { useState, useEffect } from 'react';
 
@@ -94,7 +94,7 @@ export default function StatusBar() {
 ```
 
 ### Fetching data with **useEffect**
-If you're using a framework, using your framework's data fetching mechanism will be alot affective than writing Effects manually.
+If you're using a framework, using your framework's data fetching mechanism will be more effective than writing Effects manually.
 But if you want to fetch data from an Effect manually, the code will look like this:
 
 ```jsx
