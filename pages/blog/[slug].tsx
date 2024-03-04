@@ -36,6 +36,16 @@ export const getStaticPaths = (async () => {
           slug: 'react-component-lifecycle',
         },
       },
+      {
+        params: {
+          slug: 'server-side-rendering',
+        },
+      },
+      {
+        params: {
+          slug: 'react-ref',
+        },
+      },
     ],
     fallback: false, // true or "blocking"
   };

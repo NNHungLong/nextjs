@@ -174,7 +174,7 @@ in Page.js, we use **useEffect** to fetch person data from API and assign it to 
 - In this case, we set a flag **active** in **useEffect** to indicate that the component is not yet removed after receiving personBio from API. Therefore, if we change person before the previous bio sent from API, only the latest person will be rendered.
 - If we don't have to support users on older browsers (like Internet Explorer), we can use **AbortController**. - More information can be found here [useEffect Race Condition](https://maxrozen.com/race-conditions-fetching-data-react-with-useeffect)
 
-### Update state from a previous state from an Effect
+### Update a state from a previous state from an Effect
 ```jsx
 import { useState, useEffect } from 'react';
 
@@ -249,3 +249,18 @@ There is something you should keep in mind when using **useRef**
 - Updating **useRef** doesn't trigger a re-render.
 - The information is local, meaning each component <Counter /> called will have a different timerRef.
 - Do not write or read **ref.current** during rendering, except for initialization. Writing or Reading **ref.current** during redering will make your component's behavior unpredictable.
+
+### **useEffect** dependencies
+```jsx
+useEffect(() => {
+  // This runs after every render
+});
+
+useEffect(() => {
+  // This runs only on mount (when the component appears)
+}, []);
+
+useEffect(() => {
+  // This runs on mount *and also* if either a or b have changed since the last render
+}, [a, b]);
+```
