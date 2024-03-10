@@ -6,7 +6,7 @@ import React from 'react';
 
 const Experiences = [
   {
-    time: 'Oct 2021 - May 2023',
+    time: 'Oct 2021 - 2023',
     title: 'Mobile developer',
     company: 'Tego Global',
     description: `I built a feature from the ground up that reached 40k monthly active users as a front end engineer. My responsibilities were:
