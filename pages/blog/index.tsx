@@ -10,6 +10,7 @@ export default function Blog() {
       <Link href='blog/react-component-lifecycle'>
         React - Component lifecycle
       </Link>
+      <Link href='blog/react-ref'>React - Ref</Link>
     </Layout>
   );
 }
