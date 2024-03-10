@@ -38,11 +38,6 @@ export const getStaticPaths = (async () => {
       },
       {
         params: {
-          slug: 'server-side-rendering',
-        },
-      },
-      {
-        params: {
           slug: 'react-ref',
         },
       },
