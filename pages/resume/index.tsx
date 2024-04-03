@@ -9,7 +9,7 @@ const Experiences = [
     time: 'Oct 2021 - 2023',
     title: 'Mobile developer',
     company: 'Tego Global',
-    description: `I built a feature from the ground up that reached 40k monthly active users as a front end engineer. My responsibilities were:
+    description: `I built a feature from the ground up that reached more than 50,000 monthly active users as a front end engineer. My responsibilities were:
     • Discussing the technical feasibility of new features with PM and designer.
     • Planning the implementation strategy and estimating the time required to finish the features.
     • Implementing the app analytics events to track the users’ behaviors on the app.
