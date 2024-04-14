@@ -1,4 +1,4 @@
-import Layout from '../../components/layout';
+"use client"
 import PageTitle from '../../components/pageTitle';
 import PageSubtitle from '../../components/pageSubtitle';
 import Logo from '../../components/logo';
@@ -246,13 +246,13 @@ function renderCertificates(): React.JSX.Element {
 }
 export default function Resume(): React.JSX.Element {
   return (
-    <Layout className='justify-start items-start text-zinc-200'>
+    <div className='justify-start items-start text-zinc-200'>
       <PageTitle text='Resume' />
       <div className='flex flex-col w-full'>
         {renderExperience()}
         {renderSkills()}
         {renderCertificates()}
       </div>
-    </Layout>
+    </div>
   );
 }

@@ -1,4 +1,4 @@
-import Layout from '../../components/layout';
+
 import Shop from '../../public/icons/shop';
 import PC from '../../public/icons/pc';
 import Phone from '../../public/icons/phone';
@@ -18,7 +18,6 @@ const selfIntroduction = [
   technologies quickly and apply them to my work.`,
 ];
 const personalInfo = {
-  Age: 27,
   Residence: 'Vietnam',
   Address: 'Le Van Sy street, District 3, Ho Chi Minh city',
   Email: 'ng2hunglong@gmail.com',
@@ -127,13 +126,11 @@ function renderInfiniteScrollCarousel(): React.JSX.Element {
 
 export default function About(): React.JSX.Element {
   return (
-    <Layout className='justify-start items-start p-14'>
-      <div className='text-zinc-200'>
-        <PageTitle text='About' highlightText='Me' />
-        {renderPersonalInfo()}
-        {renderWhatIDo()}
-      </div>
+    <div className='flex flex-col gap-6'>
+      <PageTitle text='About' highlightText='Me' />
+      {renderPersonalInfo()}
+      {renderWhatIDo()}
       {renderInfiniteScrollCarousel()}
-    </Layout>
+    </div>
   );
 }

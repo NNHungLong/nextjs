@@ -1,4 +1,5 @@
-import React, { ReactNode } from 'react';
+'use client'
+import { ReactNode } from 'react';
 import { motion } from 'framer-motion';
 
 type LayoutProps = {
@@ -10,16 +11,15 @@ function collapseMobileNavBar(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
   e.preventDefault();
   const hamburgerIcon = document.getElementById('hamburger-icon');
   const mobileNavBar = document.getElementById('mobile-nav-bar');
-  if (hamburgerIcon.classList.contains('active')) {
-    hamburgerIcon.classList.remove('active');
-    mobileNavBar.classList.add('translate-x-[-330px]');
+  if (hamburgerIcon && mobileNavBar) {
+    if (hamburgerIcon.classList.contains('active')) {
+      hamburgerIcon.classList.remove('active');
+      mobileNavBar.classList.add('translate-x-[-330px]');
+    }
   }
 }
 
-export default function Layout({
-  className = '',
-  children,
-}: LayoutProps): React.JSX.Element {
+export default function Template({ className, children }: LayoutProps) {
   return (
     <motion.div
       initial={{ x: 300, opacity: 0 }}

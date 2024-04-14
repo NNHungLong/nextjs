@@ -1,4 +1,5 @@
-import { useRouter } from 'next/router';
+"use client"
+import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import {
@@ -61,8 +62,7 @@ const externalLinks = [
 ];
 
 function NavItemsMobile(): React.JSX.Element {
-  const router = useRouter();
-  const pathName = router.pathname;
+  const pathName = usePathname();
   return (
     <ul className='pt-2 flex flex-col gap-2'>
       {navItems.map((item) => (
@@ -73,11 +73,10 @@ function NavItemsMobile(): React.JSX.Element {
               className='flex justify-center items-center'
             >
               <span
-                className={`hover:text-sky-500 ${
-                  pathName === item?.path
-                    ? 'font-bold text-sky-500'
-                    : 'text-zinc-200'
-                }`}
+                className={`hover:text-sky-500 ${pathName === item?.path
+                  ? 'font-bold text-sky-500'
+                  : 'text-zinc-200'
+                  }`}
               >
                 {item?.name}
               </span>
@@ -182,18 +181,19 @@ function DownloadCV(): React.JSX.Element {
 export function toggleMobileNavBar(): void {
   const hamburgerIcon = document.getElementById('hamburger-icon');
   const mobileNavBar = document.getElementById('mobile-nav-bar');
-  if (hamburgerIcon.classList.contains('active')) {
-    hamburgerIcon.classList.remove('active');
-    mobileNavBar.classList.add('translate-x-[-330px]');
-  } else {
-    hamburgerIcon.classList.add('active');
-    mobileNavBar.classList.remove('translate-x-[-330px]');
+  if (hamburgerIcon && mobileNavBar) {
+    if (hamburgerIcon.classList.contains('active')) {
+      hamburgerIcon.classList.remove('active');
+      mobileNavBar.classList.add('translate-x-[-330px]');
+    } else {
+      hamburgerIcon.classList.add('active');
+      mobileNavBar.classList.remove('translate-x-[-330px]');
+    }
   }
 }
 
 export default function Navbar(): React.JSX.Element {
-  const router = useRouter();
-  const pathName = router.pathname;
+  const pathName = usePathname();
   return (
     <>
       <HamburgerIcon />
@@ -204,9 +204,8 @@ export default function Navbar(): React.JSX.Element {
             {navItems.map((item) => (
               <li
                 key={item?.path}
-                className={`hover:text-sky-500 border-b-[1px] py-3 border-b-zinc-700 ${
-                  pathName === item?.path ? 'text-sky-500' : 'text-zinc-200'
-                }`}
+                className={`hover:text-sky-500 border-b-[1px] py-3 border-b-zinc-700 ${pathName === item?.path ? 'text-sky-500' : 'text-zinc-200'
+                  }`}
               >
                 <Link
                   href={item?.path}

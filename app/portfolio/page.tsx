@@ -1,6 +1,6 @@
+"use client"
 import { useState } from 'react';
 
-import Layout from '../../components/layout';
 import PageTitle from '../../components/pageTitle';
 import { portfolioData } from '../../data/portfolio';
 import { motion } from 'framer-motion';
@@ -35,7 +35,7 @@ function ProjectCard({ item, onClick }: ProjectCardProps) {
     <div className='flex flex-col gap-2 items-center cursor-pointer mb-4'>
       <motion.div layoutId={`project_id_${item?.id}`} onClick={onClick}>
         <ImageContainer
-          src={item?.src}
+          src={item?.src || ""}
           alt={item?.title}
           imgWidth={item?.imgWidth}
           imgHeight={item?.imgHeight}
@@ -51,9 +51,9 @@ function ProjectCard({ item, onClick }: ProjectCardProps) {
 
 export default function Portfolio() {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedItem, setSelectedItem] = useState<PortfolioData['item']>(null);
+  const [selectedItem, setSelectedItem] = useState<PortfolioData['item']>();
   return (
-    <Layout>
+    <div>
       <PageTitle text='Portfolio' />
       <div className='inline-flex flex-wrap gap-2 justify-around items-center'>
         {portfolioData.map((item) => (
@@ -77,7 +77,7 @@ export default function Portfolio() {
               >
                 <Image
                   className={`max-h-[300px] md:max-h-[none] md:h-[400px] w-auto aspect-[${selectedItem?.imgWidth}/${selectedItem?.imgHeight}]`}
-                  src={selectedItem?.src}
+                  src={selectedItem?.src || ''}
                   alt={selectedItem?.title}
                   width={selectedItem?.imgWidth}
                   height={selectedItem?.imgHeight}
@@ -96,6 +96,6 @@ export default function Portfolio() {
           )}
         </Modal>
       </ModalWrapper>
-    </Layout>
+    </div>
   );
 }
