@@ -17,7 +17,7 @@ export const generateMetadata = ({ params }: { params: { blog: string } }) => {
 
 export async function generateStaticParams() {
   return allPosts.map((post) => {
-    return { blog: post._raw.flattenedPath }
+    return { blog: post.slugAsParams }
   })
 }
 
