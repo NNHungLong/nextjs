@@ -1,23 +1,28 @@
+---
+title: Redux
+date: 2024-04-15
+---
+
 ### **Action**: plain javascript object that has a "type" field, and other fields to describe what happens. By convention we use "payload".
 
 Example:
 
 ```js
 const addTodo = {
-    type: 'todo',
-    payload: 'Buy milk'
-}
+  type: 'todo',
+  payload: 'Buy milk',
+};
 ```
 
 ### **Action Creators**: action creator is a function that creates and returns an action Object. We typically use this so we don't have to write the action object by hand every time.
 
 ```js
 const addTodo = (text) => {
-    return {
-        type: 'todo',
-        payload: text,
-    }
-}
+  return {
+    type: 'todo',
+    payload: text,
+  };
+};
 ```
 
 ### **Reducers**: a reducer is a function that receives the current state and an action object. Reducer will decide how to update the state if necessary, and return a new state. (state, action) => newState.
@@ -45,7 +50,7 @@ console.log(store.getState()); // {value: 0}
 #### The Redux store has a method called dispatch. The only way to update the state is to call store.dispatch() and pass in an action object. The store will run its reducer function and save the new state value inside, and we can call getState() to retrieve updated value:
 
 ```js
-store.dispatch({ type: 'counter/increment' })
+store.dispatch({ type: 'counter/increment' });
 console.log(store.getState()); // {value 1}
 ```
 
@@ -53,13 +58,12 @@ console.log(store.getState()); // {value 1}
 
 #### We typically call action creators to dispatch the right action
 
-
 ```js
 const increment = () => {
-    return {
-        type: 'counter/increment'
-    }
-}
+  return {
+    type: 'counter/increment',
+  };
+};
 store.dispatch(increment());
 console.log(store.getState()); // { value: 2 }
 ```
@@ -69,7 +73,7 @@ console.log(store.getState()); // { value: 2 }
 #### Selectors are functions that know how to extract specific pieces of information from a store state value. As an application grows biggers, this can help avoid repeating logic as different parts of the app need to read the same data.
 
 ```js
-const selectCounterValue = state => state.value
+const selectCounterValue = (state) => state.value;
 const currentValue = selectCounterValue(store.getState());
 console.log(currentValue); // 2
 ```
@@ -97,7 +101,7 @@ console.log(currentValue); // 2
 
 ### **Redux flow**
 
-  ![Redux flow image](https://redux.js.org/assets/images/ReduxDataFlowDiagram-49fa8c3968371d9ef6f2a1486bd40a26.gif)
+![Redux flow image](https://redux.js.org/assets/images/ReduxDataFlowDiagram-49fa8c3968371d9ef6f2a1486bd40a26.gif)
 
 ### **Writing Async Logic with Thunks**
 
@@ -105,12 +109,14 @@ console.log(currentValue); // 2
 
 - An inside function, which gets dispatch and getState as arguments.
 - The outside creator function, which creates and returns the thunk function.
+
 ####
 
 ```js
-const incrementByAmountAsync = (amount: number) => (dispatch: any, getState: any) => {
+const incrementByAmountAsync =
+  (amount: number) => (dispatch: any, getState: any) => {
     setTimeout(() => {
-        dispatch(incrementByAmount(amount));
+      dispatch(incrementByAmount(amount));
     }, 1000);
-}
+  };
 ```

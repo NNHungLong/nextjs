@@ -1,32 +1,34 @@
 // cores
 import React from 'react';
 
-// server side
-import fs, { promises as fsPromises } from 'fs';
-import path from 'path';
-
 // components
 import BlogContent from './blogContent';
 
+// utils
+import { allPosts } from 'contentlayer/generated'
+
+export const generateMetadata = ({ params }: { params: { blog: string } }) => {
+  const post = allPosts.find((post) => post.slugAsParams === params.blog);
+  if (!post) {
+    throw new Error(`Post not found for blog: ${params.blog}`)
+  }
+  return { title: post?.title }
+}
 
 export async function generateStaticParams() {
-  const folderDirectory = path.join(process.cwd(), 'public/markdown');
-  let posts = fs.readdirSync(folderDirectory);
-  return Array.isArray(posts) ? posts.map((post: string) => ({
-    blog: post.replace('.md', '')
-  })) : [];
+  return allPosts.map((post) => {
+    return { blog: post._raw.flattenedPath }
+  })
 }
 
-const getPost = async (blog: string) => {
-  const folderDirectory = path.join(process.cwd(), 'public/markdown');
-  const fileName = blog + '.md';
-  const fileDirectory = path.join(folderDirectory, fileName);
-  if (!fs.existsSync(fileDirectory)) return '';
-  const post = await fsPromises.readFile(fileDirectory, 'utf8');
-  return post;
+interface BlogParams {
+  params: {
+    blog: string
+  }
 }
 
-export default async function Blog({ params }) {
-  const post = await getPost(params?.blog || '');
+export default async function Blog({ params }: BlogParams) {
+  const post = allPosts.find((post) => post.slugAsParams === params.blog);
+  if (!post) throw new Error(`Post not found for slug: ${params.blog}`)
   return <BlogContent post={post} />;
 }

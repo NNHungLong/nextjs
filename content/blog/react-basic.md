@@ -1,13 +1,23 @@
+---
+title: React Basic
+date: 2024-04-15
+---
+
 ### **React**
+
 - React is the library for web and native user interfaces. Build user interfaces out of individual pieces called components written in JavaScript.
 
 ### **React flow**
+
 ![React flow image](https://redux.js.org/assets/images/one-way-data-flow-04fe46332c1ccb3497ecb04b94e55b97.png)
-- **State** controls the condition to render the **View**, Where users can interact with via actions like: clicking a button, submit a form, hover a mouse over an element,... Which lead to change the **State** and update the **View**. 
+
+- **State** controls the condition to render the **View**, Where users can interact with via actions like: clicking a button, submit a form, hover a mouse over an element,... Which lead to change the **State** and update the **View**.
 
 ### **React Component Structure**
+
 - React Component is an unit that controls the flow of fetching data, transforms data and represents data on the UI.
 - Components accept inputs called **props** and return React Elements describing what should appear on the screen.
+
 ```jsx
 function Welcome(props) { // child component
   return <h1>Hello, {props.name}</h1>;
@@ -19,6 +29,7 @@ function Display() { // parent component
 ```
 
 - To control the condition to display **View**, we use **State**, and by **Actions** on the **View**, users can update **State**
+
 ```jsx
 import { useState } from 'react';
 
@@ -34,9 +45,11 @@ function Count() {
   )
 }
 ```
-Explaination: This **Count** component displays a button (***View***) with a number of *count* in it. Whenever the button is clicked (***Action***), the *count* (***State***) will increase by one and update into the screen.
+
+Explaination: This **Count** component displays a button (**_View_**) with a number of _count_ in it. Whenever the button is clicked (**_Action_**), the _count_ (**_State_**) will increase by one and update into the screen.
 
 - Another way to display View on the UI conditionally is by using **Conditional Rendering**
+
 ```jsx
 function Item({ name, isPacked }) {
   if (isPacked) {
@@ -55,15 +68,17 @@ function PackingList() {
   )
 }
 ```
+
 ![Conditional rendering](../images/conditional-rendering.png)
 
-- Beside **Conditional Rendering**, we can use Javascript function ***Array.prototype.map()*** or ***Array.prototype.filter()*** to transform or filter a list before displaying it. [Filter and Map list](https://react.dev/learn/rendering-lists)
-- Note: Keeping Component ***Pure*** to prevent side effects. [Keeping component pure](https://react.dev/learn/keeping-components-pure)
+- Beside **Conditional Rendering**, we can use Javascript function **_Array.prototype.map()_** or **_Array.prototype.filter()_** to transform or filter a list before displaying it. [Filter and Map list](https://react.dev/learn/rendering-lists)
+- Note: Keeping Component **_Pure_** to prevent side effects. [Keeping component pure](https://react.dev/learn/keeping-components-pure)
 - Note: It is common to call a component with some local state "uncontrolled" because its parent can not influence its behavior. In contrast, a component is considered "controlled" when the important information in it is driven by props rather than its local state. This lets the parent component fully specify its behavior. Therefore the "controlled component" is more flexible and requires more configuration than "uncontrolled component".
 
 ### **Your UI as a Tree**
 
 - Like browsers which use tree structures to model HTML (DOM) and CSS (CSSOM), React also tree structures to manage the relationship between components. Example:
+
 ```jsx
 function ComponentB() {
   return <h1>Component B</h1>

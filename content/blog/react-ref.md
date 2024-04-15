@@ -1,3 +1,8 @@
+---
+title: React Ref
+date: 2024-04-15
+---
+
 # React Ref in React 18
 
 When you want a component to “remember” some information, but you don’t want that information to trigger new renders, you can use a ref.

@@ -1,15 +1,29 @@
 import React from 'react';
 import Link from 'next/link';
 
-export default function Blog() {
+import { compareDesc, format, parseISO } from 'date-fns';
+import { allPosts, Post } from 'contentlayer/generated';
+
+function PostCard(post: Post) {
+  return (
+    <>
+      <Link href={post.url} className="text-blue-700 hover:text-blue-900 dark:text-blue-400">
+        {post.title}
+      </Link>
+      <time dateTime={post.date} className="mb-2 block text-xs text-gray-600">
+        {format(parseISO(post.date), 'LLLL d, yyyy')}
+      </time>
+    </>
+  )
+}
+
+export default async function Blog() {
+  const posts = allPosts.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)));
   return (
     <div className='flex flex-col'>
-      <Link href='blog/redux'>Redux</Link>
-      <Link href='blog/react-basic'>React Basic</Link>
-      <Link href='blog/react-component-lifecycle'>
-        React - Component lifecycle
-      </Link>
-      <Link href='blog/react-ref'>React - Ref</Link>
+      {posts.map((post, idx) => (
+        <PostCard key={idx} {...post} />
+      ))}
     </div>
   );
 }
