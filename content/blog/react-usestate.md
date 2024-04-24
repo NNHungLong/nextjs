@@ -47,10 +47,10 @@ function CountApp() {
 ## Caveats
 
 1. the `setState` function only updates the state variable for the next render. If you read the state variable after calling the set function, it will return the old value that was currently on the screen.
-2. React will **compare** the **current value** and the **next value** of the state variable to decide whether **to re-render** the component. If you are updating the state variable with the same value, React will not re-render the component. React uses [`Object.is()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is) for the comparison.
+2. React will **compare** the **current value** and the **next value** of the state variable to decide whether **to re-render** the component. If you are updating the state variable with the same value, React will not re-render the component. React uses <u>[`Object.is()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is)</u> for the comparison.
 3. React **batches** multiple `set` function calls into a single update for better performance. React version 17 with legacy `render` will only batch the update inside an event handler and `useEffect`, but React version 18 `createRoot` will batch the update in all cases. [More info on how automatic batching behavior works](https://github.com/reactwg/react-18/discussions/21).
 
-## Example 1
+## Example 1: setState only updates the state for the next render
 
 ```jsx
 function Caveats1() {
@@ -68,15 +68,14 @@ function Caveats1() {
 }
 ```
 
-## Example 2: React does not re-render if the next state is the same (compare by `Object.is()`)
+## Example 2: React does not re-render if the next state is the same (compare by <u>[`Object.is()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is)</u>)
 
 ```jsx
 function Caveats2() {
   const [count, setCount] = useState(0);
   function updateCount() {
-    setCount(0);
+    setCount(0); // doesn't re-render because the value is the same
   }
-  console.log('re-render'); // re-render only once
   return (
     <div>
       <p>You clicked {count} times</p>
@@ -97,9 +96,17 @@ function Caveats2() {
     setCount((prev) => {
       prev.fistName = 'Tran';
       prev.lastName = 'B';
-    });
+      return prev;
+    }); // doesn't re-render because the object reference is the same
   }
-  console.log('re-render'); // re-render only once
+  function updateByReference() {
+    setCount((prev) => {
+      return {
+        firstName: 'Tran',
+        lastName: 'B',
+      };
+    }); // re-render because the object reference is different
+  }
   return (
     <div>
       <p>name: {person.lastName + '' + person.firstName}</p>
