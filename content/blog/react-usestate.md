@@ -47,10 +47,10 @@ function CountApp() {
 ## Caveats
 
 1. The `setState` function only updates the state variable for the next render. If you read the state variable after calling the set function, it will return the old value that was currently on the screen.
-2. React will **compare** the **current value** and the **next value** of the state variable to decide whether **to re-render** the component. If you are updating the state variable with the same value, React will not re-render the component. React uses <u>[`Object.is()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is)</u> for the comparison.
+2. React will **compare** the **current value** and the **next value** of the state variable to decide whether **to re-render** the component. If you are updating the state variable with the same value, React will not re-render the component. React uses [`Object.is()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is) for the comparison.
 3. React **batches** multiple `set` function calls into a single update for better performance. React version 17 with legacy `render` will only batch the update inside an event handler and `useEffect`, but React version 18 `createRoot` will batch the update in all cases. [More info on how automatic batching behavior works](https://github.com/reactwg/react-18/discussions/21).
 
-## Example 1: setState only updates the state for the next render
+## Example 1: `setState` only updates the state for the next render
 
 ```jsx
 function Caveats1() {
@@ -68,7 +68,7 @@ function Caveats1() {
 }
 ```
 
-## Example 2: React does not re-render if the next state is the same (compare by <u>[`Object.is()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is)</u>)
+## Example 2: React does not re-render if the next state is the same (compare by [`Object.is()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is))
 
 ```jsx
 function Caveats2() {
