@@ -11,7 +11,7 @@ function PostCard(post: Post) {
       <Link href={post.url} className="text-zinc-200 hover:text-sky-500 dark:text-blue-400">
         {post.title}
       </Link>
-      <time dateTime={post.date} className="mb-2 block text-xs text-gray-600">
+      <time dateTime={post.date} className="mb-2 block text-xs text-zinc-400">
         {format(parseISO(post.date), 'LLLL d, yyyy')}
       </time>
     </span>

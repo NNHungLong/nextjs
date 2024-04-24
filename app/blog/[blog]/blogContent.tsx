@@ -16,7 +16,7 @@ export default function BlogContent({ post }: BlogContentProps) {
   const syntaxHighlighterRef = createRef<SyntaxHighlighter>();
   return (
     <div className='flex flex-col'>
-      <time dateTime={post.date} className="mb-1 text-xs text-gray-600">
+      <time dateTime={post.date} className="mb-1 text-xs text-zinc-400">
         {format(parseISO(post.date), 'LLLL d, yyyy')}
       </time>
       <Markdown
