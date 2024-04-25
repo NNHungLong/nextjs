@@ -189,16 +189,15 @@ function ResetComponent() {
 
 ```jsx
 function Child({ value }) {
-  const [prevValue, setPrevValue] = useState(0);
+  const [prevValue, setPrevValue] = useState(null);
   let trend = 'no change';
   useEffect(() => {
-    switch (value - prevValue) {
-      case 0:
-        trend = 'no change';
-      case value > prevValue:
-        trend = 'up';
-      case value < prevValue:
-        trend = 'down';
+    if (prevValue === null || value === prevValue) {
+      trend = 'no change';
+    else if (value > prevValue) {
+      trend = 'up';
+    } else {
+      trend = 'down';
     }
     setPrevValue(value);
   }, [value]);
