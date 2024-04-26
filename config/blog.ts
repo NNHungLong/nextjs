@@ -43,10 +43,10 @@ export const blogConfig: blogConfig = {
     //   title: 'React Hook: useMemo',
     //   href: '/blog/react-usememo',
     // },
-    // {
-    //   title: 'React Hook: useCallback',
-    //   href: '/blog/react-usecallback',
-    // },
+    {
+      title: 'React Hook: useCallback',
+      href: '/blog/react-usecallback',
+    },
     // {
     //   title: 'React Hook: useLayoutEffect',
     //   href: '/blog/react-uselayouteffect',
