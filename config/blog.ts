@@ -35,10 +35,10 @@ export const blogConfig: blogConfig = {
       title: 'React Hook: useRef',
       href: '/blog/react-ref',
     },
-    // {
-    //   title: 'React Hook: useReducer',
-    //   href: '/blog/react-usereducer',
-    // },
+    {
+      title: 'React Hook: useReducer',
+      href: '/blog/react-usereducer',
+    },
     // {
     //   title: 'React Hook: useMemo',
     //   href: '/blog/react-usememo',
