@@ -64,7 +64,7 @@ function CountApp() {
 
 ### Caveats
 
-1. `reducer` function is pure function, meaning it doesn't contain any side effect (like setTimeout, fetch APIs, Math.random()) and for the known parameters we can calculate the returned value.
+1. `reducer` function is pure, meaning it doesn't contain any side effect (like setTimeout, fetch APIs, Math.random()) and for the known parameters we can always calculate the returned value.
 2. `state` in reducer function is read-only. Don't modify any objects or arrays in state. Instead, always return a new object from your `reducer`
 3. In `Strict Mode`, React will call your `reducer` and `initializer` functions twice to find impurity. This shouldn’t break your code.
 

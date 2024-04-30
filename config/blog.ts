@@ -23,10 +23,14 @@ export const blogConfig: blogConfig = {
       title: 'React Hook: useState',
       href: '/blog/react-usestate',
     },
-    // {
-    //   title: 'React Hook: useEffect',
-    //   href: '/blog/react-useeffect',
-    // },
+    {
+      title: 'React Hook: useEffect',
+      href: '/blog/react-useeffect',
+    },
+    {
+      title: 'React Custom Hook: useRebounce',
+      href: '/blog/react-customhook-userebound',
+    },
     // {
     //   title: 'React Hook: useContext',
     //   href: '/blog/react-usecontext',
